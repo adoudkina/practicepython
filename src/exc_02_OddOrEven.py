@@ -46,7 +46,13 @@ def isMultipleOfFour(number):
         return True
     else:
         return False  
-     
+
+def isDividedEvenly(n1, n2):
+    'Returns True if 1st argument divides evenly by 2nd argument\
+    otherwise returns None'  
+    
+    if n1 % n2 == 0:
+        return True   
     
 def main():
 
@@ -62,6 +68,19 @@ def main():
             else:
                 print("Number", number1, "is odd")       
  
+ 
+#--Extra task---
+
+    print("Now you can check if one number (1st) can be evenly divided by another number (2nd):")
+    number2 = getOneNumber()
+    number3 = getOneNumber()
+    
+    if number2 and number3:
+        if isDividedEvenly(number2, number3):
+            print(number2, "is divided evenly by", number3)
+        else:
+            print(number2, "is NOT divided evenly by", number3)
+            
        
 if __name__ == "__main__":
     main()
