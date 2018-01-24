@@ -14,18 +14,22 @@ Extras:
 
 import datetime 
 
-name = input("Input your name: ")
+while True:
+    name = input("Input your name: ")
+    if name.isalpha():
+        break
 
-try:
-    age = input("Input your age: ")
-    repeat = input("How many times to repeat an answer: ")
-    
-    if int(age) and int(repeat):
+while True:
+    try:
+        age = int(input("Input your age: "))
+        repeat = int(input("How many times to repeat an answer: "))
         current_year = datetime.date.today().year
-        years_till_100 = 100 - int(age)
-        reply = name + ', you will turn 100 years old in ' + str(current_year+years_till_100) + ' year\n'
-        print(reply*int(repeat))
-
-except ValueError as e:
-    print(e)
+        years_till_100 = 100 - age
+        reply = '{}, you will turn 100 years old in {} year\n'.format(name, str(current_year+years_till_100))
+        print(reply*repeat)
+        break
+    
+    except ValueError as e:
+        print(e)
+        continue
     
