@@ -16,23 +16,20 @@ Extras:
 
 '''
 
-def getOneNumber():
+def getInteger(msg):
     'Asks a user to input one integer number and \
     returns it if input was valid, otherwise returns None.'
-    
-    try:
-        number = input("Input any integer number:")
-        if int(number):
-            return int(number)
         
-    except (ValueError) as e:
-        print("Your input is invalid:", e) 
+    user_input = input(msg)
+    try:
+        return int(user_input)
+    except ValueError as e:
+        print("Your input is invalid. Only integer numbers are expected.")
+        return None 
          
     
-
 def isEven(number):
-    'Returns True if number is even, otherwise False'
-    
+    'Returns True if number is even, False if uneven'
     if number % 2 == 0:
         return True
     else:
@@ -58,7 +55,7 @@ def main():
 
     for i in range(4):
         
-        number1 = getOneNumber()
+        number1 = getInteger("Input any integer number:")
         
         if (number1):
             if isMultipleOfFour(number1):
@@ -72,8 +69,8 @@ def main():
 #--Extra task---
 
     print("Now you can check if one number (1st) can be evenly divided by another number (2nd):")
-    number2 = getOneNumber()
-    number3 = getOneNumber()
+    number2 = getInteger('Input 1ST integer number:')
+    number3 = getInteger('Input 2ND integer number:')
     
     if number2 and number3:
         if isDividedEvenly(number2, number3):
