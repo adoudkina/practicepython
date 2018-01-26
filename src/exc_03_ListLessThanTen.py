@@ -19,7 +19,7 @@ Extras:
 
 '''
 
-from exc_02_OddOrEven import getInteger
+from src.exc_02_OddOrEven import getInteger
 
 def listLessThanN(t_list, n):
     'Returns a new list which comprises of all elements of t_list that are smaller than n'

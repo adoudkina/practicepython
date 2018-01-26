@@ -12,18 +12,23 @@ prints out a list of all the divisors of that number.
 For example, 13 is a divisor of 26 because 26 / 13 has no remainder.)
 '''
 
-from exc_02_OddOrEven import getOneNumber
+from src.exc_02_OddOrEven import getInteger
 
 def getAllDivisors(n):
     'Returns a list of all the divisors of number n'
-    
-    return [i for i in range(1, n) if n % i == 0]
-
+    try:
+        if int(n) >= 0:
+            return [i for i in range(1, n) if n % i == 0]
+        else:
+            return [i for i in range(-1, n, -1) if n % i == 0]
+    except TypeError:
+        return None
+        
 
 def main():
     
     print("Printing out all divisors of a number provided below:")
-    print(getAllDivisors(getOneNumber()))
+    print(getAllDivisors(getInteger('Input any integer number: ')))
     
     
 if __name__ == "__main__":
