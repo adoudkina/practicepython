@@ -19,21 +19,27 @@ Extras:
 
 '''
 
-from exc_02_OddOrEven import getOneNumber
+from exc_02_OddOrEven import getInteger
 
 def listLessThanN(t_list, n):
     'Returns a new list which comprises of all elements of t_list that are smaller than n'
-    
-    return [i for i in t_list if i < n]
+    try:
+        return [i for i in t_list if i < n]
+    except TypeError as e:
+        print(e)
+        return None
 
 
 def main():
     
     a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
-    print("Initial list:", a)
-    print("Printing all elements less than 5:", listLessThanN(a, 5))
-    
-    print("Printing all elements less than the number given above.", listLessThanN(a, getOneNumber()))
+    print('Initial list:', a)
+    print('Printing only elements less than 5:', end = ' ')  
+    [print(e, end=' ') for e in a if e < 5]
+   
+    'Extras'
+    number = getInteger('\nInput integer number:') 
+    print("Printing all elements less than {}:".format(number), listLessThanN(a, number))
     
     
 if __name__ == "__main__":
